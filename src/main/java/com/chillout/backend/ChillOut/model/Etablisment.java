@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by mnomoko on 12/08/2017.
@@ -46,5 +47,24 @@ public class Etablisment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sub_category_id", nullable = false)
     private SubCategory subCategory;
+
+    /*
+    TODO : A AJOUTER DANS LA TABLE
+     */
+
+    @Column
+    private String homePhone;
+
+    @Column
+    private String mobilePhone;
+
+    @Column
+    private Picture logo;
+
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="etablisment")
+    private List<Picture> pictures;
+
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="etablisment")
+    private List<SocialNetwork> socialNetworks;
 
 }

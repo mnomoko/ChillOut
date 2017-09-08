@@ -13,6 +13,8 @@ etablishement:
   photo [string]
   reseau sociaux
   indicatorPrix
+  horaire (ouverture/fermeture)
+  description
 
 categorie:
   name
